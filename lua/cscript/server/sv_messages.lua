@@ -193,15 +193,18 @@ net.Receive("cc_loadCharacter", function(len, ply)
 				end
 				
 				ply:SetNWString("unique_id", new_unique_id)
-				if job.max ~= 0 then
-					if (#jobOccupancy + 1) > job.max then 
-						timer.Simple(1, function()
-							net.Start("cc_throwError")
-								net.WriteString("Job has hit max limit")
-								net.WriteBool(false)
-							net.Send(ply)
-							ply:changeTeam(1, true, true)
-						end)
+				print(ply:CS_Job(), job.command)
+				if ply:CS_Job() ~= job.command then
+					if job.max ~= 0 then
+						if (#jobOccupancy + 1) > job.max then 
+							timer.Simple(1, function()
+								net.Start("cc_throwError")
+									net.WriteString("Job has hit max limit")
+									net.WriteBool(false)
+								net.Send(ply)
+								ply:changeTeam(1, true, true)
+							end)
+						end
 					end
 				end
 				
