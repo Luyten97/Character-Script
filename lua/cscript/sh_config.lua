@@ -12,7 +12,7 @@ CS_Config = {}
 
 	CS_Config.Title						= "Vanguard"
 	CS_Config.CMD_Modifier				= "!"
-	CS_Config.CMD_Menu					= "longformcharactermenu"
+	CS_Config.CMD_Menu					= "charmenu"
 
 ///////////////////////////////////////////////////////////////////
 // List of chat / console commands and the permissions			 //
